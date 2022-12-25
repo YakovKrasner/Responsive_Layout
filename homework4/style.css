@@ -29,12 +29,11 @@ main{
     background-color: #F1E4E6;
 }
 .main_photo{
-    justify-self: end;
+    justify-self: center;
 }
 .slogan{
     margin-left: 63px;
-    margin-top: 289px;
-    margin-bottom: 382px;
+    align-self: center;
 }
 .catalogue{
     margin-top: 65px;
@@ -47,8 +46,8 @@ main{
 }
 .for_women_text {
     grid-area: 1/1/2/2;
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('/img/For_Women.png');
-    
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('/homework4/img/For_Women.png');
+    background-size:100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +56,8 @@ main{
 }
 .for_men_text {
     grid-area: 1/2/2/3;
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/img/For_Men.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/homework4/img/For_Men.png');
+    background-size:100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,7 +66,8 @@ main{
 }
 .for_kids_text {
     grid-area: 1/3/2/4;
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/img/For_Kids.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/homework4/img/For_Kids.png');
+    background-size:100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,7 +76,8 @@ main{
 }
 .accesories_text {
     grid-area: 2/1/3/4;
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/img/Accesories.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/homework4/img/Accesories.png');
+    background-size:100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -194,7 +196,81 @@ footer{
     line-height: 19px;
     color: #F26376;
 }
-@font-face {
-    font-family: 'Lato';
-    src: url('/font/Lato-Bold.ttf');
-}
+
+@media (min-width: 768px ) and (max-width: 1024px) {
+    .container{
+        max-width: 1024px;
+    }
+    header{
+        max-width: 1024px;
+        justify-content: space-between;
+    }
+    .logo_search{
+        display:flex;
+        gap: 41px;
+        margin-left: 32px;
+    }
+    .right_menu{
+        display:flex;
+        gap: 33px;
+        margin-right: 32px;
+    }
+    .main_photo{
+        max-width: 512px;
+    }
+    .slogan{
+        margin-left: 39px;
+        max-width: 70%;
+    }
+    .catalogue{
+        grid-template-columns: 231px 231px 231px;
+        grid-template-rows: 167px 116px;
+        row-gap: 19px;
+        column-gap: 19px;
+        margin-left: 16px;
+        margin-right: 16px;
+        }
+
+    .catalogue_description{
+            font-size: 16px;
+            line-height: 15px;
+        }
+    .catalogue_header{
+            font-size: 19px;
+            line-height: 19px;
+        }
+    .for_women_text {
+            gap: 10px;
+        }
+    .for_men_text {
+            gap: 10px;
+        }
+    .for_kids_text {
+            gap: 10px;
+        }
+    .accesories_text {
+            gap: 10px;
+        }
+
+    .products{
+        grid-template-columns: 360px 360px;
+        grid-template-rows: 140px 581px 581px 581px;
+        row-gap: 16px;
+        column-gap: 14px;
+     }
+     .products_head{
+        grid-area: 1/1/2/3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .product {
+        width: 360px;
+    }
+
+        }
+    @font-face {
+        font-family: 'Lato';
+        src: url('/homework4/font/Lato-Bold.ttf');
+    }
