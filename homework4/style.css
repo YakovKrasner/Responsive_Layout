@@ -270,7 +270,87 @@ footer{
     }
 
         }
+   
+    @media (min-width: 320px) and (max-width: 767px) {
+        .container{
+            max-width: 767px;
+        }
+        header{
+            justify-content: space-between;
+            padding-left: 16px;
+            padding-right: 20px;
+        }
+        .profile_icon{
+            display: none;
+        }
+        .bucket_icon{
+            display: none;
+        }
+        main {
+            grid-template-columns: 100%;
+            grid-template-rows: 363px;
+        }
+        .main_photo{
+            display: none;
+        }
+        .slogan{
+            margin-left: 0px;
+            grid-area: 1/1/2/2;
+            justify-self: center;
+            max-width: 70%;
+        }
+        .catalogue{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            }
+        .for_women_text{
+            width: 96%;
+            min-height: 200px;
+            background-size: 100%
+                   
+        }
+        .for_men_text {
+            width: 96%;
+            min-height: 200px;
+            background-size: 100%;
+        }
+        .for_kids_text{
+            width: 94%;
+            min-height: 200px;
+            background-size: 100%;
+        }
+        .accesories_text{
+            width: 94%;
+            min-height: 111px;
+            background-size: auto;
+        }
+        .products{
+            margin-top: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .products_header2{
+            font-size: 12px;
+        }
+        .product{
+            max-width: 360px;
+        }
+        .product_img{
+            max-width: 360px;
+        }
+        .product_description_container{
+            padding-bottom: 10px;
+        }
+    }
+
+
     @font-face {
         font-family: 'Lato';
         src: url('/homework4/font/Lato-Bold.ttf');
     }
+    
