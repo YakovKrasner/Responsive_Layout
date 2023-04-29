@@ -72,78 +72,7 @@
     <container>
         <div class="products">
                 <p class="products_head"><span class="products_header1">Featured Items</span><span class="products_header2">Shop for items based on what we featured in this week</span></p>
-                <div class="product">
-                    <div class="img_product_block">
-                    <img src="/img/product1.jpg" alt="product1" class="product_img">
-                    <div class="add_to_cart">
-                    <img src="/img/Cart.png" alt="Cart" class="cart_logo">
-                    <span>Add to Cart</span>
-                    </div>
-                    </div>
-                    <div class="product_description_container">
-                    <div class="product_text"><span class="product_name">ELLERY X M'O CAPSULE</span><span class="product_description">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span><span class="product_price">$52.00</span></div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="img_product_block">
-                    <img src="/img/product2.png" alt="product1" class="product_img">
-                    <div class="add_to_cart">
-                    <img src="/img/Cart.png" alt="Cart" class="cart_logo">
-                    <span>Add to Cart</span>
-                    </div>
-                    </div>
-                    <div class="product_description_container">
-                    <div class="product_text"><span class="product_name">ELLERY X M'O CAPSULE</span><span class="product_description">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span><span class="product_price">$52.00</span></div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="img_product_block">
-                    <img src="/img/product3.png" alt="product1" class="product_img">
-                    <div class="add_to_cart">
-                    <img src="/img/Cart.png" alt="Cart" class="cart_logo">
-                    <span>Add to Cart</span>
-                    </div>
-                    </div>
-                    <div class="product_description_container">
-                    <div class="product_text"><span class="product_name">ELLERY X M'O CAPSULE</span><span class="product_description">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span><span class="product_price">$52.00</span></div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="img_product_block">
-                    <img src="/img/product4.png" alt="product1" class="product_img">
-                    <div class="add_to_cart">
-                    <img src="/img/Cart.png" alt="Cart" class="cart_logo">
-                    <span>Add to Cart</span>
-                    </div>
-                    </div>
-                    <div class="product_description_container">
-                    <div class="product_text"><span class="product_name">ELLERY X M'O CAPSULE</span><span class="product_description">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span><span class="product_price">$52.00</span></div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="img_product_block">
-                    <img src="/img/product5.png" alt="product1" class="product_img">
-                    <div class="add_to_cart">
-                    <img src="/img/Cart.png" alt="Cart" class="cart_logo">
-                    <span>Add to Cart</span>
-                    </div>
-                    </div>
-                    <div class="product_description_container">
-                    <div class="product_text"><span class="product_name">ELLERY X M'O CAPSULE</span><span class="product_description">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span><span class="product_price">$52.00</span></div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="img_product_block">
-                    <img src="/img/product6.png" alt="product1" class="product_img">
-                    <div class="add_to_cart">
-                    <img src="/img/Cart.png" alt="Cart" class="cart_logo">
-                    <span>Add to Cart</span>
-                    </div>
-                    </div>
-                    <div class="product_description_container">
-                    <div class="product_text"><span class="product_name">ELLERY X M'O CAPSULE</span><span class="product_description">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span><span class="product_price">$52.00</span></div>
-                    </div>
-                </div>
+                
                 </div>
             <div class="product_button">
                 <button class="browse_products_button">
@@ -196,5 +125,61 @@
             </div>
         </footer>
     </container>
+
+    <script src="json.js"></script>
+    <script>
+        const productsData = JSON.parse(data);
+        
+        productsData.forEach(element => {
+            
+        
+        const products = document.querySelector ('.products');
+        const productElement = document.createElement ('div');
+        const imgProductBlock = document.createElement ('div');
+        const productImg = document.createElement ('img');
+        const productDescriptionContainer = document.createElement ('div');
+        const productText = document.createElement ('div');
+        const productName = document.createElement ('span');
+        const productDescription = document.createElement ('span');
+        const productPrice = document.createElement ('span');
+        const addToCart = document.createElement ('div');
+        const cartIcon = document.createElement ('img');
+        const addToCartText = document.createElement ('span');
+
+        productElement.classList.add('product');
+        imgProductBlock.classList.add ('img_product_block');
+        productImg.classList.add('product_img');
+        productDescriptionContainer.classList.add('product_description_container');
+        productText.classList.add ('product_text');
+        productName.classList.add ('product_name');
+        productDescription.classList.add ('product_description');
+        productPrice.classList.add ('product_price');
+        addToCart.classList.add ('add_to_cart');
+        cartIcon.classList.add ('cart_logo');
+
+        products.appendChild (productElement);
+        productElement.appendChild (imgProductBlock);
+        productElement.appendChild (productDescriptionContainer);
+        imgProductBlock.appendChild (productImg);
+        imgProductBlock.appendChild (addToCart);
+        addToCart.appendChild (cartIcon);
+        addToCart.appendChild (addToCartText)
+        productDescriptionContainer.appendChild (productText);
+        productText.appendChild (productName);
+        productText.appendChild (productDescription);
+        productText.appendChild (productPrice);
+        
+        productPrice.textContent = element.priceOfProduct;
+        productImg.src = element.imgSrc;
+        productName.textContent = element.nameOfProduct;
+        productDescription.textContent = element.descriptionOfProduct;
+        addToCartText.textContent = "Add to cart"
+        cartIcon.src = 'img/Cart.png'
+
+});
+
+
+    </script>
+
 </body>
 </html>
