@@ -99,6 +99,11 @@
                     <div class="offer_text">Worldwide delivery on all. Authorit tively morph next-generation innovation with extensive models.</div>
                 </div>
             </div>
+            <div class="customer__cart__block">
+            <div class="customer__cart__header">Cart Items</div>
+            <div class="customer__cart"></div>
+            </div>
+
             <div class="subscribe_and_appeal">
                 <div class="appeal">
                     <img src="/img/Smiling_Face.png" alt="Smiling_Face">
@@ -130,6 +135,10 @@
     <script>
         const productsData = JSON.parse(data);
         
+        const customerCartBlock = document.querySelector('.customer__cart__block');
+        customerCartBlock.style.display = 'none';
+        const customerCart = document.querySelector ('.customer__cart')
+//Конструктор карточек товаров
         productsData.forEach(element => {
             
         
@@ -146,7 +155,7 @@
         const cartIcon = document.createElement ('img');
         const addToCartText = document.createElement ('span');
 
-        productElement.classList.add('product');
+        productElement.classList.add('product',`${element.id}`);
         imgProductBlock.classList.add ('img_product_block');
         productImg.classList.add('product_img');
         productDescriptionContainer.classList.add('product_description_container');
@@ -175,9 +184,60 @@
         productDescription.textContent = element.descriptionOfProduct;
         addToCartText.textContent = "Add to cart"
         cartIcon.src = 'img/Cart.png'
+        
+        addToCart.addEventListener("click", () => {
+            //Конструктор карточек товаров, добавленных в корзину
+            console.log (customerCart.childNodes.length);
+            if (customerCart.childNodes.length == 0) customerCartBlock.style.display = 'flex';
+            
+            const customerCartElement = document.createElement ('div');
+            const customerCartElementImg = document.createElement ('img');
+            const customerCartElementDescription = document.createElement ('div');
+            const customerCartElementDescriptionName = document.createElement ('p');
+            const customerCartElementDescriptionPrice = document.createElement ('p');
+            const customerCartElementDescriptionColor = document.createElement ('p');
+            const customerCartElementDescriptionSize = document.createElement ('p');
+            const customerCartElementDescriptionQuantity = document.createElement ('span');
+            const quantityInput = document.createElement ('input');
+            const deleteButton = document.createElement ('button')
+            
+            customerCart.appendChild  (customerCartElement);
+            customerCartElement.appendChild  (customerCartElementImg);
+            customerCartElement.appendChild (customerCartElementDescription);
+            customerCartElementDescription.appendChild (customerCartElementDescriptionName);
+            customerCartElementDescription.appendChild (customerCartElementDescriptionPrice);
+            customerCartElementDescription.appendChild (customerCartElementDescriptionColor);
+            customerCartElementDescription.appendChild (customerCartElementDescriptionSize);
+            customerCartElementDescription.appendChild (customerCartElementDescriptionQuantity);
+            customerCartElement.appendChild (deleteButton);
+            
 
-});
+            customerCartElement.classList.add ('Customer__Cart__Element');
+            customerCartElementDescription.classList.add ('Customer__Cart__Element__Description')
+            customerCartElementDescriptionName.classList.add('Customer__Cart__Element__Name');
+            customerCartElementImg.classList.add ('Customer_Cart_Img');
+            deleteButton.classList.add ('btn__del')
 
+            customerCartElementImg.src = element.imgSrc;
+            customerCartElementDescriptionName.textContent = element.nameOfProduct;
+            customerCartElementDescriptionPrice.textContent = (`Price: ${element.priceOfProduct}`);
+            customerCartElementDescriptionColor.textContent = (`Color: ${element.color}`);
+            customerCartElementDescriptionSize.textContent = (`Size: ${element.size}`);
+            deleteButton.textContent = "Удалить";
+            customerCartElementDescriptionQuantity.textContent = 'Quantity:  '
+            customerCartElementDescriptionQuantity.appendChild (quantityInput)
+
+            deleteButton.addEventListener('click', () => {
+            const delProduct = deleteButton.closest('.Customer__Cart__Element');
+            delProduct.remove();
+            if (customerCart.childNodes.length == 0) customerCartBlock.style.display = "none";
+            });
+
+            
+        });
+
+    
+    });
 
     </script>
 

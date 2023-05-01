@@ -227,6 +227,10 @@ color: #E1E1E1;
     width: 138px;
 }
 
+.add_to_cart:hover{
+    background:rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
 .img_product_block:hover .product_img{
     filter: brightness(0.3);
 }
@@ -338,6 +342,60 @@ margin-top: 95px;
     text-align: center;
     color: #FBFBFB;
 }
+
+.customer__cart__block {
+    margin-top: 96px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 96px;
+}
+
+.btn__del {
+    
+    width: 18px;
+    height: 18px;
+    font-size: 0;
+    border: none;
+    background: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(img/cross.svg);
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+.customer__cart__header {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+.Customer__Cart__Element {
+    margin-top: 64px;
+    display: flex;
+    box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+        
+}
+.Customer_Cart_Img {
+    max-height: 306px;
+}
+
+.Customer__Cart__Element__Description{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    margin-left: 31px;
+    
+}
+
+.Customer__Cart__Element__Name{
+    margin-bottom: 42px;
+}
+
 .subscribe_and_appeal{
     height: 448px;
     background: linear-gradient(rgba(235, 219, 219, 0.584),rgba(255, 255, 255, 0.518)), url('/img/beach.png');
